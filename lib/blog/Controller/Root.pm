@@ -33,8 +33,11 @@ sub index :Path :Args(0) {
     $c->response->body( $c->welcome_message );
 }
 
-sub hello :Local {
+sub list :Local {
     my ( $self, $c ) = @_;
+
+    # Загрузим записи
+    $c->stash( 'posts' => [$c->model('myDB::Post')->all]);
 
     # Hello World
     $c->stash->{template} = 'hello.tt';

@@ -1,1 +1,8 @@
 hello from template toolkit!
+
+[% FOREACH post IN posts %]
+<p>
+    <h1>[%post.title%]</h1>
+    <div>[%post.text%]</div>
+</p>
+[% END %]
